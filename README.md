@@ -1,4 +1,6 @@
-# 7 MIT Opensource – Beranda
+# opensource.7mit – Beranda
+
+Sub-divisi dari [7mit.org](https://7mit.org); desain mengikuti portal 7 MIT lainnya (sidebar navy, aksen biru-cyan, tema gelap/terang).
 
 Situs statis (satu berkas `index.html`, tanpa build) tentang organisasi [7-MIT](https://github.com/7-MIT).
 Daftar proyek diambil langsung dari GitHub API, dengan data cadangan bila API tidak terjangkau.

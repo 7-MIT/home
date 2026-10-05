@@ -3,192 +3,219 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>7 MIT Opensource</title>
-<meta name="description" content="Beranda proyek opensource 7 MIT (7mit.org): portal siswa, guru, eksekutif, dan denah kelas. Kode terbuka di GitHub.">
+<title>opensource.7mit · Opensource 7 MIT</title>
+<meta name="description" content="opensource.7mit: sub-divisi 7mit.org. Kode terbuka portal siswa, guru, eksekutif, dan denah Kelas 7 MIT.">
 <style>
 :root{
-  --bg:#0b1020; --bg2:#121936; --card:#161f42; --line:#26325f; --text:#e8ecff; --muted:#9aa6d6;
-  --brand:#6c8cff; --brand2:#37e2c1; --warn:#ffb86b; --radius:16px;
+  color-scheme:light;
+  --accent-primary:#2563eb;--accent-secondary:#22a6e8;--accent-rgb:37,99,235;
+  --bg:#f3f6fb;--surface:#fff;--surface-2:#f8fafc;--ink:#172033;--muted:#667085;--line:#e3e8f0;
+  --blue:var(--accent-primary);--cyan:var(--accent-secondary);
+  --navy:color-mix(in srgb,var(--accent-primary) 26%,#111827);
+  --shadow:0 16px 45px rgba(32,48,78,.11);--radius:20px;--ease:cubic-bezier(.2,.75,.25,1);
 }
-:root[data-theme="light"]{
-  --bg:#f5f7ff; --bg2:#e9edff; --card:#ffffff; --line:#d5dcf5; --text:#141a3a; --muted:#56608c;
-  --brand:#3d5afe; --brand2:#00a98a; --warn:#c76a00;
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#07101f;--surface:#0d192b;--surface-2:#111f33;--ink:#edf4ff;--muted:#9fb0c8;--line:rgba(148,163,184,.18);
+  --shadow:0 18px 46px rgba(0,0,0,.28);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
-a{color:var(--brand);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-header.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;gap:18px;height:60px}
-.logo{font-weight:800;letter-spacing:.5px;color:var(--text);display:flex;align-items:center;gap:8px}
-.logo b{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:8px;padding:2px 8px}
-.nav nav{margin-left:auto;display:flex;gap:16px;align-items:center}
-.nav nav a{color:var(--muted);font-size:14px}
-.nav nav a:hover{color:var(--text);text-decoration:none}
-button,.btn{font:inherit;cursor:pointer}
-.icon-btn{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:10px;width:36px;height:36px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font-weight:600}
-.btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0}
-.btn:hover{text-decoration:none;transform:translateY(-1px)}
-.hero{position:relative;overflow:hidden;padding:84px 0 64px}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
-.hero .wrap{position:relative}
-.pill{display:inline-block;padding:4px 12px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:13px;background:var(--card)}
-h1{font-size:clamp(34px,6vw,60px);line-height:1.1;margin:18px 0 14px;letter-spacing:-1px}
-h1 span{background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{max-width:640px;color:var(--muted);font-size:18px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:44px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
-.stat b{display:block;font-size:30px}
-.stat small{color:var(--muted)}
-section{padding:56px 0}
-section.alt{background:var(--bg2)}
-h2{font-size:30px;margin:0 0 8px;letter-spacing:-.5px}
-.sub{color:var(--muted);margin:0 0 28px}
-.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-.tools input{flex:1;min-width:200px;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+body{margin:0;min-width:320px;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(circle at 0 0,color-mix(in srgb,var(--cyan) 10%,var(--bg)) 0,transparent 26%),radial-gradient(circle at 100% 0,color-mix(in srgb,var(--blue) 8%,var(--bg)) 0,transparent 25%),var(--bg)}
+button,input,select{font:inherit}button,select{cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid rgba(var(--accent-rgb),.35);outline-offset:2px}
+.app{min-height:100vh;display:grid;grid-template-columns:278px minmax(0,1fr)}
+.sidebar{position:sticky;top:0;height:100vh;padding:22px 17px;color:#fff;z-index:50;
+  background:radial-gradient(circle at 10% 0,rgba(34,166,232,.22),transparent 31%),linear-gradient(180deg,var(--navy),color-mix(in srgb,var(--accent-primary) 18%,#111827))}
+.brand{display:flex;align-items:center;gap:13px;padding:2px 5px 22px}
+.brand-logo{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;font-weight:900;font-size:20px;background:linear-gradient(135deg,var(--cyan),var(--blue));box-shadow:0 12px 28px rgba(var(--accent-rgb),.34)}
+.brand h1{margin:0;font-size:18px;line-height:1.15}.brand small{color:#b9c6d9}
+.nav{display:grid;gap:6px}
+.nav button{width:100%;min-height:44px;border:0;border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px;color:#c9d4e4;background:transparent;text-align:left;font-weight:700;transition:.18s ease}
+.nav button:hover,.nav button.active{color:#fff;background:rgba(255,255,255,.11)}
+.nav button:hover{transform:translateX(3px)}
+.nav i{font-style:normal;width:23px;text-align:center;font-size:17px}
+.side-foot{position:absolute;left:17px;right:17px;bottom:18px;padding:13px 14px;border:1px solid rgba(255,255,255,.13);border-radius:15px;background:rgba(255,255,255,.07);font-size:13px}
+.side-foot small{color:#b9c6d9}.side-foot b{display:block;margin:4px 0 8px}
+.side-foot a{color:#fff;font-weight:700;text-decoration:none}
+main{min-width:0;padding:28px 32px 50px;max-width:1280px;width:100%;margin:auto}
+.mobile-top{display:none}
+.page{display:none}.page.active{display:block;animation:pageIn .25s ease}
+@keyframes pageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:22px;flex-wrap:wrap}
+.title h2{margin:0;font-size:clamp(1.75rem,3vw,2.45rem);letter-spacing:-.035em;line-height:1.08}
+.title p{margin:8px 0 0;color:var(--muted)}
+.actions{display:flex;gap:9px;flex-wrap:wrap}
+.btn,.icon-btn{border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;transition:.18s ease;text-decoration:none}
+.btn{min-height:44px;padding:10px 15px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.icon-btn{width:44px;height:44px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn:hover,.icon-btn:hover{transform:translateY(-1px);box-shadow:0 9px 20px rgba(33,48,78,.12)}
+.btn.primary{border-color:transparent;color:#fff;background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 10px 23px rgba(var(--accent-rgb),.22)}
+.hero{border-radius:28px;padding:36px;color:#fff;position:relative;overflow:hidden;margin-bottom:22px;
+  background:radial-gradient(circle at 90% 0,rgba(34,166,232,.5),transparent 40%),linear-gradient(135deg,var(--navy),var(--blue))}
+.hero .pill{display:inline-block;padding:5px 13px;border-radius:99px;background:rgba(255,255,255,.14);font-size:13px;font-weight:700}
+.hero h2{font-size:clamp(1.9rem,4vw,3rem);line-height:1.1;letter-spacing:-.04em;margin:16px 0 12px;max-width:720px}
+.hero p{max-width:620px;color:#dbe7ff;font-size:1.05rem;margin:0}
+.hero .actions{margin-top:24px}
+.hero .btn:not(.primary){background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+.hero .btn.primary{background:#fff;color:var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:22px}
+.stat,.panel,.card,.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.stat{padding:18px}
+.stat b{display:block;font-size:30px;letter-spacing:-.03em}.stat small{color:var(--muted)}
+.panel{padding:22px;margin-bottom:18px}
+.panel h3{margin:0 0 8px}
+.panel p{color:var(--muted);margin:0 0 10px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.tools input,.tools select,select.full{padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.tools input{flex:1;min-width:200px}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:14px}
-.chip[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:var(--brand)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:10px;transition:.2s;cursor:pointer;text-align:left;color:var(--text);font:inherit}
-.card:hover{transform:translateY(-3px);border-color:var(--brand)}
+.chip{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-weight:700;font-size:14px}
+.chip[aria-pressed="true"]{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.card{padding:20px;display:flex;flex-direction:column;gap:10px;text-align:left;color:var(--ink);transition:.2s var(--ease);cursor:pointer}
+.card:hover{transform:translateY(-3px);border-color:var(--blue)}
+.card .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:20px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff}
 .card h3{margin:0;font-size:18px;display:flex;justify-content:space-between;gap:8px;align-items:center}
 .card p{margin:0;color:var(--muted);font-size:14px;flex:1}
 .meta{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.tag{padding:2px 9px;border-radius:99px;background:color-mix(in srgb,var(--brand) 18%,transparent);color:var(--brand);font-size:12px}
-.empty{color:var(--muted);padding:24px;text-align:center;border:1px dashed var(--line);border-radius:var(--radius)}
+.tag{padding:3px 10px;border-radius:99px;background:rgba(var(--accent-rgb),.12);color:var(--blue);font-size:12px;font-weight:700}
+.empty{color:var(--muted);padding:24px;text-align:center;border:1px dashed var(--line);border-radius:var(--radius);grid-column:1/-1}
 .status{font-size:13px;color:var(--muted);margin-top:14px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:s}
-.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;counter-increment:s}
-.step::before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-weight:700;margin-bottom:10px}
-.step h3{margin:0 0 6px;font-size:17px}
-.step p{margin:0;color:var(--muted);font-size:14px}
-.term{background:#050816;color:#d6e0ff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;font:14px/1.7 ui-monospace,Menlo,Consolas,monospace;position:relative;overflow-x:auto}
-.term .c{color:#6e7aa8}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;counter-reset:s}
+.step{padding:20px;counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:800;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:17px}.step p{margin:0;color:var(--muted);font-size:14px}
+.term{background:#050b17;color:#d6e0ff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;font:13.5px/1.7 ui-monospace,Menlo,Consolas,monospace;position:relative;overflow-x:auto}
+.term pre{margin:0}.term .c{color:#6e7aa8}
 .copy{position:absolute;top:10px;right:10px;background:#1a2350;color:#d6e0ff;border:1px solid #2c3a74;border-radius:8px;padding:4px 10px;font-size:12px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
-.faq summary{cursor:pointer;font-weight:600}
-.faq p{color:var(--muted);margin:10px 0 0}
-dialog{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);color:var(--text);max-width:520px;width:calc(100% - 32px);padding:24px}
-dialog::backdrop{background:rgba(0,0,0,.6)}
+select.full{width:100%;margin-bottom:12px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700}.faq p{color:var(--muted);margin:10px 0 0}
+dialog{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink);max-width:520px;width:calc(100% - 32px);padding:24px}
+dialog::backdrop{background:rgba(2,8,23,.62)}
 dialog h3{margin:0 0 6px;font-size:22px}
 dialog .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:760px){.two{grid-template-columns:1fr}.nav nav a.h{display:none}.hero{padding-top:56px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+footer{color:var(--muted);font-size:13px;margin-top:32px;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){
+  .app{grid-template-columns:1fr}
+  .sidebar{position:fixed;left:0;top:0;width:278px;transform:translateX(-100%);transition:transform .25s var(--ease)}
+  .sidebar.open{transform:none}
+  .mobile-top{display:flex;align-items:center;gap:12px;padding:12px 16px;position:sticky;top:0;z-index:40;background:var(--surface);border-bottom:1px solid var(--line)}
+  .mobile-top b{flex:1}
+  main{padding:20px 16px 40px}.hero{padding:26px 22px}.two{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-
-<header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#top"><b>7</b> MIT Opensource</a>
-    <nav>
-      <a class="h" href="#proyek">Proyek</a>
-      <a class="h" href="#kontribusi">Kontribusi</a>
-      <a class="h" href="#lisensi">Lisensi</a>
-      <a class="h" href="#faq">FAQ</a>
-      <a href="https://github.com/7-MIT" target="_blank" rel="noopener">GitHub ↗</a>
-      <button class="icon-btn" id="theme" aria-label="Ganti tema">◐</button>
+<div class="app">
+  <aside class="sidebar" id="side">
+    <div class="brand">
+      <div class="brand-logo">7</div>
+      <div><h1>opensource.7mit</h1><small>sub-divisi 7mit.org</small></div>
+    </div>
+    <nav class="nav" id="nav">
+      <button data-p="beranda" class="active"><i>🏠</i>Beranda</button>
+      <button data-p="proyek"><i>📦</i>Proyek</button>
+      <button data-p="kontribusi"><i>🤝</i>Kontribusi</button>
+      <button data-p="lisensi"><i>📜</i>Lisensi</button>
+      <button data-p="faq"><i>❓</i>FAQ</button>
     </nav>
-  </div>
-</header>
+    <div class="side-foot">
+      <small>Bagian dari</small><b>7mit.org</b>
+      <a href="https://github.com/7-MIT" target="_blank" rel="noopener">github.com/7-MIT ↗</a>
+    </div>
+  </aside>
 
-<main id="top">
-<div class="hero">
-  <canvas id="bg" aria-hidden="true"></canvas>
-  <div class="wrap">
-    <span class="pill">🌐 7mit.org · Kode terbuka</span>
-    <h1>Teknologi sekolah yang <span>terbuka untuk semua</span></h1>
-    <p class="lead">7 MIT Opensource adalah kumpulan proyek terbuka yang digunakan oleh 7mit.org: portal siswa, guru, eksekutif, dan denah kelas. Lihat kodenya, pelajari, dan ikut berkontribusi.</p>
-    <div class="cta">
-      <a class="btn primary" href="#proyek">Jelajahi proyek →</a>
-      <a class="btn" href="https://github.com/7-MIT" target="_blank" rel="noopener">Buka di GitHub</a>
+  <div>
+    <div class="mobile-top">
+      <button class="icon-btn" id="menu" aria-label="Menu">☰</button>
+      <b>opensource.7mit</b>
+      <button class="icon-btn" id="theme2" aria-label="Ganti tema">◐</button>
     </div>
-    <div class="stats" id="stats">
-      <div class="stat"><b data-n="5">0</b><small>Repositori</small></div>
-      <div class="stat"><b data-n="0" id="st-star">0</b><small>Bintang</small></div>
-      <div class="stat"><b data-n="0" id="st-fork">0</b><small>Fork</small></div>
-      <div class="stat"><b>MIT</b><small>Lisensi yang diusung</small></div>
-    </div>
+    <main>
+      <!-- Beranda -->
+      <section class="page active" id="p-beranda">
+        <div class="hero">
+          <span class="pill">🌐 Sub-divisi dari 7mit.org</span>
+          <h2>Kode di balik portal Kelas 7 MIT, terbuka untuk semua</h2>
+          <p>Di sini kamu bisa melihat, mempelajari, dan ikut mengembangkan proyek yang dipakai oleh 7mit.org: portal siswa, guru, eksekutif, dan denah kelas.</p>
+          <div class="actions">
+            <button class="btn primary" data-go="proyek">Jelajahi proyek →</button>
+            <a class="btn" href="https://7mit.org" target="_blank" rel="noopener">Kunjungi 7mit.org ↗</a>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b id="st-repo">0</b><small>Repositori</small></div>
+          <div class="stat"><b id="st-star">0</b><small>Bintang</small></div>
+          <div class="stat"><b id="st-fork">0</b><small>Fork</small></div>
+          <div class="stat"><b id="st-upd">-</b><small>Pembaruan terakhir</small></div>
+        </div>
+        <div class="two">
+          <div class="panel"><h3>🎯 Tentang</h3><p>opensource.7mit adalah rumah bagi seluruh kode sumber ekosistem 7mit.org di GitHub organisasi 7-MIT.</p></div>
+          <div class="panel"><h3>🚀 Mulai cepat</h3><p>Pilih proyek, salin perintah <code>git</code>, lalu kirim perbaikanmu lewat pull request.</p><button class="btn" data-go="kontribusi">Lihat caranya</button></div>
+        </div>
+      </section>
+
+      <!-- Proyek -->
+      <section class="page" id="p-proyek">
+        <header class="topbar">
+          <div class="title"><h2>Proyek</h2><p>Data diambil langsung dari GitHub. Klik kartu untuk detail.</p></div>
+          <div class="actions"><button class="icon-btn" id="theme" aria-label="Ganti tema">◐</button></div>
+        </header>
+        <div class="tools">
+          <input id="q" type="search" placeholder="Cari proyek…" aria-label="Cari proyek">
+          <div class="chips" id="chips" role="group" aria-label="Filter bahasa"></div>
+          <button class="chip" id="sort">Urut: terbaru</button>
+        </div>
+        <div class="grid" id="grid"></div>
+        <div class="status" id="status"></div>
+      </section>
+
+      <!-- Kontribusi -->
+      <section class="page" id="p-kontribusi">
+        <header class="topbar"><div class="title"><h2>Cara berkontribusi</h2><p>Perbaiki bug, tambah fitur, atau rapikan dokumentasi.</p></div></header>
+        <div class="steps">
+          <div class="step"><h3>Fork</h3><p>Salin repositori ke akun GitHub kamu.</p></div>
+          <div class="step"><h3>Clone &amp; cabang</h3><p>Unduh lokal, lalu buat branch khusus.</p></div>
+          <div class="step"><h3>Ubah &amp; commit</h3><p>Buat perubahan kecil dengan pesan commit jelas.</p></div>
+          <div class="step"><h3>Pull request</h3><p>Kirim PR dan jelaskan apa yang berubah.</p></div>
+        </div>
+        <div class="panel" style="margin-top:18px">
+          <h3>Coba sendiri</h3>
+          <p>Pilih proyek, perintah menyesuaikan otomatis.</p>
+          <select id="pick" class="full" aria-label="Pilih proyek"></select>
+          <div class="term"><button class="copy" id="copy">Salin</button><pre id="cmd"></pre></div>
+        </div>
+      </section>
+
+      <!-- Lisensi -->
+      <section class="page" id="p-lisensi">
+        <header class="topbar"><div class="title"><h2>Lisensi</h2><p>Ketentuan penggunaan kode ada di tiap repositori.</p></div></header>
+        <div class="panel">
+          <h3>📜 Baca berkas LICENSE</h3>
+          <p>Setiap repositori memiliki ketentuan masing-masing. Periksa berkas <code>LICENSE</code> di repositori yang ingin kamu pakai sebelum menyalin, mengubah, atau membagikannya.</p>
+          <p>Jika repositori belum mencantumkan lisensi, tanyakan dulu kepada pengelola lewat Issues.</p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="page faq" id="p-faq">
+        <header class="topbar"><div class="title"><h2>FAQ</h2><p>Pertanyaan yang sering muncul.</p></div></header>
+        <details><summary>Apa itu opensource.7mit?</summary><p>Sub-divisi 7mit.org yang menampung kode sumber terbuka portal Kelas 7 MIT di GitHub organisasi 7-MIT.</p></details>
+        <details><summary>Saya bukan programmer, bisa membantu?</summary><p>Bisa. Laporkan bug lewat Issues, perbaiki salah ketik, atau bantu menulis dokumentasi.</p></details>
+        <details><summary>Di mana melaporkan masalah?</summary><p>Buka tab Issues pada repositori terkait di GitHub dan jelaskan langkah untuk mereproduksinya.</p></details>
+        <details><summary>Bagaimana hubungannya dengan 7mit.org?</summary><p>7mit.org adalah situs utamanya. Situs ini khusus untuk sisi kode terbukanya.</p></details>
+      </section>
+
+      <footer><span>© <span id="yr"></span> 7 MIT · <a href="https://7mit.org" target="_blank" rel="noopener">7mit.org</a></span><span>opensource.7mit</span></footer>
+    </main>
   </div>
 </div>
-
-<section id="proyek" class="alt">
-  <div class="wrap">
-    <h2>Proyek</h2>
-    <p class="sub">Data diambil langsung dari GitHub. Klik kartu untuk detail.</p>
-    <div class="tools">
-      <input id="q" type="search" placeholder="Cari proyek…" aria-label="Cari proyek">
-      <div class="chips" id="chips" role="group" aria-label="Filter bahasa"></div>
-      <button class="chip" id="sort" title="Ganti urutan">Urut: terbaru</button>
-    </div>
-    <div class="grid" id="grid"></div>
-    <div class="status" id="status"></div>
-  </div>
-</section>
-
-<section id="kontribusi">
-  <div class="wrap">
-    <h2>Cara berkontribusi</h2>
-    <p class="sub">Siapa pun boleh membantu: perbaiki bug, tambah fitur, atau rapikan dokumentasi.</p>
-    <div class="steps">
-      <div class="step"><h3>Fork</h3><p>Salin repositori ke akun GitHub kamu.</p></div>
-      <div class="step"><h3>Clone &amp; cabang</h3><p>Unduh lokal, lalu buat branch khusus untuk perubahanmu.</p></div>
-      <div class="step"><h3>Ubah &amp; commit</h3><p>Buat perubahan kecil dan terfokus dengan pesan commit jelas.</p></div>
-      <div class="step"><h3>Pull request</h3><p>Kirim PR dan jelaskan apa yang berubah serta alasannya.</p></div>
-    </div>
-    <div class="two" style="margin-top:28px">
-      <div>
-        <h3>Coba sendiri</h3>
-        <p class="sub" style="margin-bottom:12px">Pilih proyek, perintahnya otomatis menyesuaikan.</p>
-        <select id="pick" class="tools" style="padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;width:100%"></select>
-      </div>
-      <div class="term" id="term"><button class="copy" id="copy">Salin</button><pre style="margin:0" id="cmd"></pre></div>
-    </div>
-  </div>
-</section>
-
-<section id="lisensi" class="alt">
-  <div class="wrap two">
-    <div>
-      <h2>Lisensi MIT</h2>
-      <p class="sub">Lisensi permisif: bebas dipakai, diubah, dan dibagikan.</p>
-      <p>Nama “7 MIT” memang sama dengan lisensi MIT, yaitu lisensi yang kami junjung. Cek berkas <code>LICENSE</code> di tiap repositori untuk ketentuan pastinya.</p>
-    </div>
-    <div class="steps" style="grid-template-columns:1fr 1fr">
-      <label class="step"><h3>✅ Boleh</h3><p>Pakai komersial, modifikasi, distribusi, dan penggunaan pribadi.</p></label>
-      <label class="step"><h3>📌 Wajib</h3><p>Sertakan pemberitahuan hak cipta dan teks lisensi.</p></label>
-      <label class="step"><h3>🚫 Tanpa jaminan</h3><p>Perangkat lunak disediakan “apa adanya”.</p></label>
-      <label class="step"><h3>🤝 Terbuka</h3><p>Perbaikan dari komunitas sangat disambut.</p></label>
-    </div>
-  </div>
-</section>
-
-<section id="faq" class="faq">
-  <div class="wrap" style="max-width:780px">
-    <h2>FAQ</h2>
-    <p class="sub">Pertanyaan yang sering muncul.</p>
-    <details><summary>Apa itu 7 MIT Opensource?</summary><p>Kumpulan proyek terbuka di GitHub organisasi 7-MIT yang digunakan oleh situs 7mit.org.</p></details>
-    <details><summary>Saya bukan programmer, bisa membantu?</summary><p>Bisa. Laporkan bug lewat Issues, perbaiki salah ketik, atau bantu menerjemahkan dan menulis dokumentasi.</p></details>
-    <details><summary>Di mana melaporkan masalah?</summary><p>Buka tab <b>Issues</b> pada repositori terkait di GitHub, lalu jelaskan langkah untuk mereproduksinya.</p></details>
-    <details><summary>Bolehkah memakai kode ini untuk sekolah saya?</summary><p>Umumnya boleh sesuai lisensi di tiap repositori. Pastikan membaca berkas LICENSE sebelum memakainya.</p></details>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span>© <span id="yr"></span> 7 MIT · <a href="https://7mit.org" target="_blank" rel="noopener">7mit.org</a></span>
-    <span><a href="https://github.com/7-MIT" target="_blank" rel="noopener">github.com/7-MIT</a></span>
-  </div>
-</footer>
 
 <dialog id="dlg">
   <h3 id="d-name"></h3>
@@ -205,16 +232,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   var $=function(s){return document.querySelector(s)};
   var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
 
-  // Data cadangan (dipakai bila GitHub API tidak bisa dijangkau)
+  // Data cadangan bila GitHub API tidak terjangkau
   var repos=[
     {name:'home',description:'Beranda untuk 7 MIT Opensource',language:null,stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/home',updated_at:'2026-10-05T06:55:45Z'},
-    {name:'7mit-siswa',description:'Portal untuk siswa',language:'HTML',stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/7mit-siswa',updated_at:'2026-10-05T04:19:41Z'},
-    {name:'7mit-guru',description:'Portal untuk guru',language:'HTML',stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/7mit-guru',updated_at:'2026-10-05T04:19:44Z'},
-    {name:'7mit-eksekutif',description:'Portal untuk eksekutif',language:'HTML',stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/7mit-eksekutif',updated_at:'2026-10-05T04:19:46Z'},
-    {name:'7mit-denahkelas',description:'Denah kelas',language:'JavaScript',stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/7mit-denahkelas',updated_at:'2026-10-01T02:03:10Z'}
+    {name:'7mit-siswa',description:'Portal Siswa 7 MIT',language:'HTML',stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/7mit-siswa',updated_at:'2026-10-05T04:19:41Z'},
+    {name:'7mit-guru',description:'Portal Guru 7 MIT',language:'HTML',stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/7mit-guru',updated_at:'2026-10-05T04:19:44Z'},
+    {name:'7mit-eksekutif',description:'Portal Eksekutif 7 MIT',language:'HTML',stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/7mit-eksekutif',updated_at:'2026-10-05T04:19:46Z'},
+    {name:'7mit-denahkelas',description:'Denah Kelas 7 MIT',language:'JavaScript',stargazers_count:0,forks_count:0,html_url:'https://github.com/7-MIT/7mit-denahkelas',updated_at:'2026-10-01T02:03:10Z'}
   ];
-  var lang='Semua', sortBy='updated', query='';
+  var icons={siswa:'🎒',guru:'👩‍🏫',eksekutif:'🏛️',denahkelas:'🗺️',home:'🏠'};
+  var lang='Semua',sortBy='updated',query='';
 
+  function icon(n){var k=n.replace(/^7mit-/,'');return icons[k]||'📦'}
   function ago(iso){
     var d=(Date.now()-new Date(iso))/1000;
     if(d<3600)return Math.max(1,Math.round(d/60))+' mnt lalu';
@@ -223,69 +252,71 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   }
   function countUp(el,to){
     var t0=performance.now();
-    (function f(t){var p=Math.min(1,(t-t0)/800);el.textContent=Math.round(to*p);if(p<1)requestAnimationFrame(f)})(t0);
+    (function f(t){var p=Math.min(1,(t-t0)/700);el.textContent=Math.round(to*p);if(p<1)requestAnimationFrame(f)})(t0);
   }
+
+  // Navigasi halaman
+  function go(p){
+    if(!$('#p-'+p))p='beranda';
+    document.querySelectorAll('.page').forEach(function(e){e.classList.toggle('active',e.id==='p-'+p)});
+    document.querySelectorAll('#nav button').forEach(function(b){b.classList.toggle('active',b.dataset.p===p)});
+    $('#side').classList.remove('open');
+    if(location.hash!=='#'+p)history.replaceState(null,'','#'+p);
+    scrollTo(0,0);
+  }
+  $('#nav').addEventListener('click',function(e){var b=e.target.closest('button');if(b)go(b.dataset.p)});
+  document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(g)go(g.dataset.go)});
+  $('#menu').addEventListener('click',function(){$('#side').classList.toggle('open')});
+  addEventListener('hashchange',function(){go(location.hash.slice(1))});
 
   function chips(){
     var set=['Semua'];
     repos.forEach(function(r){if(r.language&&set.indexOf(r.language)<0)set.push(r.language)});
-    $('#chips').innerHTML=set.map(function(l){
-      return '<button class="chip" aria-pressed="'+(l===lang)+'" data-l="'+esc(l)+'">'+esc(l)+'</button>';
-    }).join('');
+    $('#chips').innerHTML=set.map(function(l){return '<button class="chip" aria-pressed="'+(l===lang)+'" data-l="'+esc(l)+'">'+esc(l)+'</button>'}).join('');
   }
-
   function render(){
     var list=repos.filter(function(r){
-      var okL=lang==='Semua'||r.language===lang;
-      var hay=(r.name+' '+(r.description||'')).toLowerCase();
-      return okL&&hay.indexOf(query)>-1;
-    }).sort(function(a,b){
-      return sortBy==='name'?a.name.localeCompare(b.name):new Date(b.updated_at)-new Date(a.updated_at);
-    });
+      return (lang==='Semua'||r.language===lang)&&(r.name+' '+(r.description||'')).toLowerCase().indexOf(query)>-1;
+    }).sort(function(a,b){return sortBy==='name'?a.name.localeCompare(b.name):new Date(b.updated_at)-new Date(a.updated_at)});
     $('#grid').innerHTML=list.length?list.map(function(r){
-      return '<button class="card" data-n="'+esc(r.name)+'"><h3>'+esc(r.name)+(r.language?'<span class="tag">'+esc(r.language)+'</span>':'')+'</h3>'+
+      return '<button class="card" data-n="'+esc(r.name)+'"><div class="ic">'+icon(r.name)+'</div><h3>'+esc(r.name)+(r.language?'<span class="tag">'+esc(r.language)+'</span>':'')+'</h3>'+
         '<p>'+esc(r.description||'Tanpa deskripsi')+'</p>'+
         '<div class="meta"><span>★ '+r.stargazers_count+'</span><span>⑂ '+r.forks_count+'</span><span>Diperbarui '+ago(r.updated_at)+'</span></div></button>';
-    }).join(''):'<div class="empty" style="grid-column:1/-1">Tidak ada proyek yang cocok.</div>';
+    }).join(''):'<div class="empty">Tidak ada proyek yang cocok.</div>';
   }
-
   function stats(){
-    var s=repos.reduce(function(a,r){return a+r.stargazers_count},0),f=repos.reduce(function(a,r){return a+r.forks_count},0);
-    document.querySelectorAll('.stat b[data-n]').forEach(function(b){
-      var n=b.id==='st-star'?s:b.id==='st-fork'?f:repos.length;countUp(b,n);
-    });
+    var s=0,f=0,last=0;
+    repos.forEach(function(r){s+=r.stargazers_count;f+=r.forks_count;last=Math.max(last,+new Date(r.updated_at))});
+    countUp($('#st-repo'),repos.length);countUp($('#st-star'),s);countUp($('#st-fork'),f);
+    $('#st-upd').textContent=last?ago(new Date(last).toISOString()):'-';
   }
-
   function picker(){
-    $('#pick').innerHTML=repos.map(function(r){return '<option>'+esc(r.name)+'</option>'}).join('');
-    cmd();
+    $('#pick').innerHTML=repos.map(function(r){return '<option>'+esc(r.name)+'</option>'}).join('');cmd();
   }
   function cmd(){
-    var n=$('#pick').value||repos[0].name;
-    $('#cmd').innerHTML='<span class="c"># 1. Fork lewat GitHub, lalu clone</span>\ngit clone https://github.com/<b>USERNAME-KAMU</b>/'+esc(n)+'.git\ncd '+esc(n)+'\n\n<span class="c"># 2. Buat cabang baru</span>\ngit checkout -b perbaikan-saya\n\n<span class="c"># 3. Commit &amp; push</span>\ngit commit -am "Jelaskan perubahanmu"\ngit push -u origin perbaikan-saya';
+    var n=esc($('#pick').value||repos[0].name);
+    $('#cmd').innerHTML='<span class="c"># 1. Fork lewat GitHub, lalu clone</span>\ngit clone https://github.com/<b>USERNAME-KAMU</b>/'+n+'.git\ncd '+n+'\n\n<span class="c"># 2. Buat cabang baru</span>\ngit checkout -b perbaikan-saya\n\n<span class="c"># 3. Commit &amp; push</span>\ngit commit -am "Jelaskan perubahanmu"\ngit push -u origin perbaikan-saya';
   }
-
   function load(){
     $('#status').textContent='Memuat data dari GitHub…';
     fetch('https://api.github.com/orgs/7-MIT/repos?per_page=100').then(function(r){
       if(!r.ok)throw new Error(r.status);return r.json();
     }).then(function(d){
-      if(Array.isArray(d)&&d.length){repos=d;}
+      if(Array.isArray(d)&&d.length)repos=d;
       $('#status').textContent='Data langsung dari GitHub API ('+repos.length+' repositori).';
     }).catch(function(){
       $('#status').textContent='GitHub API tidak dapat dijangkau; menampilkan data tersimpan.';
-    }).then(function(){chips();render();picker();stats();});
+    }).then(function(){chips();render();picker();stats()});
   }
 
-  // Event
   $('#q').addEventListener('input',function(e){query=e.target.value.toLowerCase().trim();render()});
   $('#chips').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;lang=b.dataset.l;chips();render()});
   $('#sort').addEventListener('click',function(e){sortBy=sortBy==='updated'?'name':'updated';e.target.textContent='Urut: '+(sortBy==='updated'?'terbaru':'nama');render()});
   $('#pick').addEventListener('change',cmd);
   $('#copy').addEventListener('click',function(){
-    var t=$('#cmd').textContent;
-    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){$('#copy').textContent='Tersalin ✓'},function(){$('#copy').textContent='Gagal'});
-    setTimeout(function(){$('#copy').textContent='Salin'},1500);
+    var b=$('#copy');
+    (navigator.clipboard?navigator.clipboard.writeText($('#cmd').textContent):Promise.reject()).then(function(){b.textContent='Tersalin ✓'},function(){b.textContent='Gagal'});
+    setTimeout(function(){b.textContent='Salin'},1500);
   });
   $('#grid').addEventListener('click',function(e){
     var c=e.target.closest('.card');if(!c)return;
@@ -293,44 +324,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     $('#d-name').textContent=r.name;
     $('#d-desc').textContent=r.description||'Tanpa deskripsi';
     $('#d-meta').innerHTML='<span>Bahasa: '+esc(r.language||'-')+'</span><span>★ '+r.stargazers_count+'</span><span>⑂ '+r.forks_count+'</span><span>Diperbarui '+ago(r.updated_at)+'</span>';
-    $('#d-link').href=r.html_url;
-    $('#dlg').showModal();
+    $('#d-link').href=r.html_url;$('#dlg').showModal();
   });
   $('#d-close').addEventListener('click',function(){$('#dlg').close()});
   $('#dlg').addEventListener('click',function(e){if(e.target===this)this.close()});
 
   // Tema
   var root=document.documentElement;
-  try{var t=localStorage.getItem('theme');if(t)root.dataset.theme=t;else if(matchMedia('(prefers-color-scheme: light)').matches)root.dataset.theme='light'}catch(e){}
-  $('#theme').addEventListener('click',function(){
-    var n=root.dataset.theme==='light'?'dark':'light';root.dataset.theme=n;
-    try{localStorage.setItem('theme',n)}catch(e){}
-  });
+  try{var t=localStorage.getItem('theme');if(t)root.dataset.theme=t;else if(matchMedia('(prefers-color-scheme: dark)').matches)root.dataset.theme='dark'}catch(e){}
+  function toggle(){var n=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}}
+  $('#theme').addEventListener('click',toggle);$('#theme2').addEventListener('click',toggle);
   $('#yr').textContent=new Date().getFullYear();
 
-  // Latar partikel
-  (function(){
-    var cv=$('#bg'),cx=cv.getContext('2d'),P=[],W,H,m={x:-999,y:-999};
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-    function size(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;P=[];for(var i=0;i<Math.min(70,W/18);i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4})}
-    size();addEventListener('resize',size);
-    cv.parentNode.addEventListener('mousemove',function(e){var r=cv.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
-    (function loop(){
-      cx.clearRect(0,0,W,H);
-      var col=getComputedStyle(root).getPropertyValue('--brand').trim();
-      cx.fillStyle=col;cx.strokeStyle=col;
-      P.forEach(function(p,i){
-        p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-        var dx=p.x-m.x,dy=p.y-m.y,d=Math.hypot(dx,dy);if(d<100){p.x+=dx/d*1.5;p.y+=dy/d*1.5}
-        cx.beginPath();cx.arc(p.x,p.y,2,0,6.3);cx.fill();
-        for(var j=i+1;j<P.length;j++){var q=P[j],dd=Math.hypot(p.x-q.x,p.y-q.y);
-          if(dd<110){cx.globalAlpha=1-dd/110;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke();cx.globalAlpha=1}}
-      });
-      requestAnimationFrame(loop);
-    })();
-  })();
-
-  chips();render();picker();stats();load();
+  chips();render();picker();stats();load();go(location.hash.slice(1)||'beranda');
 })();
 </script>
 </body>
